@@ -1,0 +1,18 @@
+{
+  "name": "sports-registration",
+  "version": "1.0.0",
+  "description": "Sports registration web application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0",
+    "ejs": "^3.1.9",
+    "bcryptjs": "^2.4.3",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "express-session": "^1.17.3"
+  }
+}
