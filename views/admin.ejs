@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <div class="admin-dashboard">
+        <h3>Registered Users</h3>
+        <ul>
+            <% users.forEach(user => { %>
+                <li><%= user.name %> - <%= user.email %></li>
+            <% }) %>
+        </ul>
+
+        <h3>Sports Registrations</h3>
+        <ul>
+            <% registrations.forEach(reg => { %>
+                <li><%= reg.user.name %> registered for <%= reg.game %> in <%= reg.location %></li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>
