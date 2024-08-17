@@ -1,0 +1,8 @@
+express
+mongoose
+passport
+passport-local
+passport-local-mongoose
+dotenv
+ejs
+express-session
