@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Sports</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Register for a Sport</h2>
+        <form action="/event/register" method="POST">
+            <div class="input-box">
+                <label for="game">Select Game:</label>
+                <select id="game" name="game" required>
+                    <option value="Cricket">Cricket</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Volleyball">Volleyball</option>
+                    <!-- Add more games here -->
+                </select>
+            </div>
+            <div class="input-box">
+                <input type="text" name="location" placeholder="Enter location" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="teamName" placeholder="Enter team name (if applicable)">
+            </div>
+            <div class="input-box button">
+                <input type="submit" value="Register Now">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
