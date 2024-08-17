@@ -1,2 +1,2 @@
-nodejs-14.x
+nodejs-20.x
 python-3.8.10
