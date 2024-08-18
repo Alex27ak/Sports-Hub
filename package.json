@@ -1,20 +1,22 @@
 {
   "name": "sports-hub",
   "version": "1.0.0",
-  "description": "Sports registration web application",
+  "description": "A simple sports registration website",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.1.0",
-    "ejs": "^3.1.9",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.1.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "express-session": "^1.17.3",
     "passport-local-mongoose": "^7.0.0"
   },
-  "license": "MIT"
+  "author": "Prethika",
+  "license": "ISC"
 }
