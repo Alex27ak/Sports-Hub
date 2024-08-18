@@ -14,6 +14,7 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "express-session": "^1.17.3",
-    "passport-local-mongoose": "^7.0.0"  // Ensure this is included
-  }
+    "passport-local-mongoose": "^7.0.0"
+  },
+  "license": "MIT"
 }
