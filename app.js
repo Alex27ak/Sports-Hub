@@ -1,57 +1,39 @@
-const express = require('express');
+require('dotenv').config();
 const mongoose = require('mongoose');
-const passport = require('passport');
+const express = require('express');
 const session = require('express-session');
-const bodyParser = require('body-parser');
+const passport = require('passport');
+const User = require('./models/User');
 const authRoutes = require('./routes/auth');
-
 const app = express();
 
-mongoose.connect('your-mongodb-connection-string', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI; // Ensure this is correctly set in your .env file
+
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('Connected to MongoDB');
+}).catch((err) => {
+  console.error('Failed to connect to MongoDB', err);
 });
 
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Session middleware
+app.use(express.urlencoded({ extended: false }));
 app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: false
+  secret: 'yourSecret',
+  resave: false,
+  saveUninitialized: false,
 }));
 
-// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Global middleware to pass user to all views
-app.use((req, res, next) => {
-    res.locals.user = req.user;
-    next();
-});
+app.use(express.static('public'));
+app.use(authRoutes);
 
-// Routes
-app.use('/', authRoutes);
+app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/events', (req, res) => {
-    res.render('events');
-});
-
-app.get('/login', (req, res) => {
-    res.render('login');
-});
-
-app.get('/register', (req, res) => {
-    res.render('register');
-});
-
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
