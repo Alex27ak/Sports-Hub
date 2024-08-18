@@ -1,2 +1,2 @@
 nodejs-20.x
-python-3.12.5
+python-3.8.19
