@@ -1,32 +1,57 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
+const passport = require('passport');
+const session = require('express-session');
+const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
-require('dotenv').config();
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect('your-mongodb-connection-string', {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
+    useUnifiedTopology: true
+});
 
-app.use('/auth', authRoutes);
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Session middleware
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: false
+}));
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Global middleware to pass user to all views
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+
+// Routes
+app.use('/', authRoutes);
 
 app.get('/', (req, res) => {
     res.render('index');
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.get('/events', (req, res) => {
+    res.render('events');
+});
+
+app.get('/login', (req, res) => {
+    res.render('login');
+});
+
+app.get('/register', (req, res) => {
+    res.render('register');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
 });
