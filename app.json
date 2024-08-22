@@ -1,16 +1,7 @@
 {
   "name": "sports-registration",
-  "description": "A sports registration platform using Node.js and MongoDB",
-  "repository": "https://github.com/yourusername/sports-registration",
-  "keywords": ["node", "express", "mongodb", "sports", "registration"],
-  "env": {
-    "NODE_ENV": "production",
-    "MONGO_URI": {
-      "description": "MongoDB connection string",
-      "required": true
-    }
-  },
-  "addons": [
-    "heroku-mongodb"
-  ]
+  "description": "A Flask web application for sports registration.",
+  "scripts": {
+    "start": "python app.py"
+  }
 }
