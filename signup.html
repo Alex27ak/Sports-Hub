@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Sports Sphere</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Registration</h2>
+        <form action="/signup" method="post">
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Create password" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="confirm_password" placeholder="Confirm password" required>
+            </div>
+            <div class="policy">
+                <input type="checkbox" required>
+                <h3>I accept all <a href="#" id="terms-link">terms & conditions</a></h3>
+            </div>
+            <div class="input-box button">
+                <input type="Submit" value="Register Now">
+            </div>
+            <div class="text">
+                <h3>Already have an account? <a href="login.html">Login now</a></h3>
+            </div>
+        </form>
+    </div>
+
+    <!-- Terms and Conditions Popup -->
+    <div id="terms-popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Terms and Conditions</h2>
+            <p>Here are the terms and conditions...</p>
+        </div>
+    </div>
+    <script src="js/terms-popup.js"></script>
+</body>
+</html>
