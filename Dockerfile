@@ -1,18 +1,9 @@
-# Use Node.js base image
-FROM node:14
+FROM python:3.8-slim-buster
 
-# Set the working directory
 WORKDIR /app
 
-# Copy the package.json and install dependencies
-COPY package*.json ./
-RUN npm install
+COPY . /app
 
-# Copy the rest of the application
-COPY . .
+RUN pip install -r requirements.txt
 
-# Expose the port on which the app runs
-EXPOSE 3000
-
-# Start the application
-CMD ["node", "app.js"]
+CMD ["python", "app.py"]
