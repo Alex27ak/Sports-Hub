@@ -1,11 +1,2 @@
-Flask==2.0.1
-requests==2.25.1
-
-express
-mongoose
-passport
-passport-local
-passport-local-mongoose
-dotenv
-ejs
-express-session
+Flask
+Flask-PyMongo
