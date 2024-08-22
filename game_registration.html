@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Registration - Sports Sphere</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Register for a Game</h2>
+        <form action="/register_game" method="post">
+            <div class="input-box">
+                <select name="game" required>
+                    <option value="Cricket">Cricket</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Volleyball">Volleyball</option>
+                    <!-- Add more games as needed -->
+                </select>
+            </div>
+            <div class="input-box button">
+                <input type="Submit" value="Register">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
